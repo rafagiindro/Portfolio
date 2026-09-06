@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trajetória profissional de Rafael Gindro Geraldo em segurança do trabalho, operações e prevenção de riscos.">
+  <title>Rafael Gindro — Segurança do Trabalho</title>
+  <style>
+    /* 1. Cores e medidas compartilhadas por toda a página. */
+    :root { color-scheme: dark; --bg:#111714; --panel:#1b231e; --ink:#f2f0e6; --muted:#b7bdb3; --line:#364237; --accent:#e4c65b; --dark:#152017; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:inherit; text-underline-offset:5px; }
+    button,input,textarea { font:inherit; }
+    button,a,input,textarea { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { width:min(1120px,calc(100% - 48px)); margin:auto; }
+    .skip { position:fixed; top:12px; left:12px; transform:translateY(-160%); z-index:10; padding:12px; background:var(--accent); color:var(--dark); }
+    .skip:focus { transform:none; }
+    .eyebrow { color:var(--accent); font:600 12px/1.5 ui-monospace,monospace; letter-spacing:2px; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { line-height:1.12; }
+    h1 { font-size:clamp(44px,6.8vw,84px); letter-spacing:-4px; margin:24px 0; }
+    h2 { font-size:clamp(30px,4vw,46px); letter-spacing:-1.5px; margin-bottom:20px; }
+    h3 { font-size:21px; margin-bottom:12px; }
+    p { color:var(--muted); }
+    .button { display:inline-flex; justify-content:center; align-items:center; gap:16px; padding:14px 22px; border:1px solid var(--accent); border-radius:5px; background:var(--accent); color:var(--dark); text-decoration:none; font-weight:650; cursor:pointer; }
+    .button:hover { background:#f0d882; border-color:#f0d882; }
+    .button.secondary { background:transparent; color:var(--ink); border-color:var(--line); }
+    .button.secondary:hover { border-color:var(--ink); }
+    /* 2. Navegação. Sem JavaScript, os links continuam disponíveis. */
+    .topbar { position:sticky; top:0; z-index:5; background:rgba(17,23,20,.97); border-bottom:1px solid var(--line); }
+    .nav { min-height:80px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; }
+    .brand span { width:38px; height:38px; display:grid; place-items:center; background:var(--accent); color:var(--dark); border-radius:3px; font-size:14px; }
+    .links { display:flex; align-items:center; gap:28px; }
+    .links a { font-size:14px; text-decoration:none; color:var(--muted); }
+    .links a:hover { color:var(--accent); }
+    .menu { display:none; border:1px solid var(--line); border-radius:4px; color:var(--ink); background:transparent; padding:9px 14px; cursor:pointer; }
+    /* 3. Apresentação e painel lateral. */
+    .hero { display:grid; grid-template-columns:1.4fr 1fr; align-items:center; gap:70px; padding:92px 0 78px; }
+    .hero h1 span { color:var(--accent); }
+    .intro { font-size:18px; max-width:550px; margin-bottom:30px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .location { margin:26px 0 0; font-size:13px; }
+    .field-card { border:1px solid #526044; border-radius:8px; padding:32px; background:linear-gradient(145deg,#293524,#19221b); position:relative; }
+    .field-card::before { content:""; position:absolute; top:0; left:30px; width:70px; height:4px; background:var(--accent); }
+    .field-top { display:flex; justify-content:space-between; align-items:center; font:12px ui-monospace,monospace; color:var(--muted); }
+    .shield { width:120px; height:135px; display:block; margin:34px auto; color:var(--accent); }
+    .field-card h2 { font-size:28px; letter-spacing:-.5px; }
+    .field-card p { font-size:14px; }
+    .field-bottom { display:flex; justify-content:space-between; gap:12px; border-top:1px solid #526044; padding-top:20px; color:var(--muted); font-size:12px; }
+    .topics { display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; color:var(--muted); font:12px ui-monospace,monospace; letter-spacing:1px; }
+    .topics span::before { content:"+"; color:var(--accent); margin-right:12px; }
+    /* 4. Seções e cartões. */
+    section { padding:84px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:34px; }
+    .section-head h2 { margin-bottom:0; }
+    .section-head>p { max-width:330px; margin:0; font-size:14px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { padding:28px; border:1px solid var(--line); border-radius:6px; background:var(--panel); }
+    .card .number { display:block; color:var(--accent); font:13px ui-monospace,monospace; margin-bottom:30px; }
+    .card p { font-size:14px; margin-bottom:0; }
+    .about { display:grid; grid-template-columns:1fr 1.4fr; gap:64px; padding-bottom:0; }
+    .about p { font-size:17px; }
+    .experience { border-top:1px solid var(--line); }
+    .job { display:grid; grid-template-columns:200px 1fr; gap:35px; padding:28px 0; border-bottom:1px solid var(--line); }
+    .job time,.period { color:var(--muted); font:12px/1.7 ui-monospace,monospace; }
+    .job h3 { margin-bottom:6px; }
+    .company { color:var(--accent); margin-bottom:12px; font-size:14px; }
+    .job p:last-child { margin-bottom:0; font-size:14px; max-width:710px; }
+    .current { display:inline-block; margin-top:10px; color:var(--accent); border:1px solid var(--line); padding:3px 9px; font:11px ui-monospace,monospace; border-radius:3px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 0; padding:0; list-style:none; }
+    .tags li { padding:6px 12px; border:1px solid var(--line); border-radius:4px; color:var(--muted); font-size:13px; }
+    .education { padding-top:0; }
+    .education .card { background:transparent; }
+    .education h3 { font-size:19px; }
+    /* 5. Contato: o visitante revisa o e-mail antes de abrir seu aplicativo. */
+    .contact { border-top:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+    .contact-address { font-style:normal; margin:28px 0; display:grid; gap:12px; overflow-wrap:anywhere; }
+    .contact-address a { width:fit-content; }
+    .contact form { display:grid; gap:18px; }
+    label { display:block; font-size:13px; margin-bottom:7px; }
+    input,textarea { width:100%; border:1px solid var(--line); border-radius:4px; padding:13px; background:var(--panel); color:var(--ink); }
+    textarea { min-height:130px; resize:vertical; }
+    .hint { font-size:13px; margin:0; }
+    .draft { padding:20px; border:1px solid var(--accent); border-radius:5px; }
+    .draft pre { white-space:pre-wrap; overflow-wrap:anywhere; font:14px/1.6 system-ui,sans-serif; color:var(--muted); }
+    [hidden] { display:none !important; }
+    footer { border-top:1px solid var(--line); padding:28px 0; }
+    .footer-row { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-size:12px; color:var(--muted); }
+    .footer-row p { margin:0; }
+    @media(max-width:900px) { .hero { gap:30px; } .grid { grid-template-columns:repeat(2,1fr); } .contact { gap:35px; } .links { gap:16px; } }
+    @media(max-width:680px) {
+      .wrap { width:calc(100% - 36px); } .nav { flex-wrap:wrap; padding:15px 0; min-height:70px; } .links { width:100%; flex-wrap:wrap; padding:10px 0; gap:20px; }
+      .js .menu { display:block; } .js .links:not(.open) { display:none; }
+      .hero,.about,.contact { grid-template-columns:1fr; gap:32px; } .hero { padding:48px 0; } h1 { letter-spacing:-2px; } .field-card { padding:24px; } .shield { width:80px; height:90px; margin:22px auto; }
+      section { padding:56px 0; } .grid { grid-template-columns:1fr; } .section-head { display:block; } .section-head>p { margin-top:18px; } .job { grid-template-columns:1fr; gap:12px; } .topics { font-size:11px; } .education { padding-top:0; } .contact .button { width:100%; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { :root { --bg:white; --panel:white; --ink:black; --muted:#333; --line:#bbb; --accent:#514000; } .topbar,.actions,.field-card,form,.skip,footer a { display:none !important; } .hero,.about,.contact { display:block; } section,.hero { padding:20px 0; } .card,.job { break-inside:avoid; } body { font-size:11pt; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Rafael Gindro, início"><span aria-hidden="true">RG</span> Rafael Gindro</a>
+      <button class="menu" type="button" aria-controls="menu-links" aria-expanded="false">Menu</button>
+      <div class="links" id="menu-links"><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#experiencia">Experiência</a><a href="#contato">Contato ↗</a></div>
+    </nav>
+  </header>
+  <main id="conteudo" tabindex="-1">
+    <div class="wrap">
+      <section class="hero" id="inicio" aria-labelledby="titulo">
+        <div>
+          <p class="eyebrow">Segurança do trabalho · Portfólio profissional</p>
+          <h1 id="titulo">Prevenção em foco.<br><span>Experiência<br>em campo.</span></h1>
+          <p class="intro">Sou Rafael Gindro Geraldo, técnico em Segurança do Trabalho. Atuo na identificação de riscos, no acompanhamento de equipes e na construção de operações mais seguras.</p>
+          <div class="actions"><a class="button" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a><a class="button secondary" href="#experiencia">Conheça minha trajetória</a></div>
+          <p class="location">São Bernardo do Campo, SP · Disponibilidade para viagens</p>
+        </div>
+        <aside class="field-card" aria-label="Áreas de experiência">
+          <div class="field-top"><span>ATUAÇÃO EM CAMPO</span><span aria-hidden="true">01 / RG</span></div>
+          <svg class="shield" viewBox="0 0 120 135" fill="none" aria-hidden="true"><path d="M60 7 108 26v40c0 28-23 48-48 61C35 114 12 94 12 66V26L60 7Z" stroke="currentColor" stroke-width="2"/><path d="m38 66 15 15 31-34" stroke="currentColor" stroke-width="5"/><path d="M60 18 98 33v31c0 23-17 40-38 52-21-12-38-29-38-52V33l38-15Z" stroke="currentColor" opacity=".25"/></svg>
+          <h2>Segurança começa<br>antes da operação.</h2>
+          <p>Conhecimento técnico aliado à prática em obras, atividades elétricas e sistemas de combate a incêndio.</p>
+          <div class="field-bottom"><span>PREVENÇÃO</span><span>PROCESSOS</span><span>PESSOAS</span></div>
+        </aside>
+      </section>
+      <div class="topics" aria-label="Áreas de conhecimento"><span>GESTÃO DE RISCOS</span><span>INSPEÇÕES</span><span>TREINAMENTOS</span><span>SEGURANÇA OPERACIONAL</span></div>
+      <section class="about" id="sobre" aria-labelledby="sobre-titulo">
+        <div><p class="eyebrow">01 — Sobre</p><h2 id="sobre-titulo">Técnica e prática,<br>lado a lado.</h2></div>
+        <div><p>Minha trajetória reúne experiências em segurança do trabalho, operações elétricas, manutenção industrial e proteção contra incêndio.</p><p>Atuo no acompanhamento de equipes, inspeções, documentação de segurança e apoio à adequação dos processos de trabalho. Atualmente, também curso Engenharia de Software.</p><ul class="tags" aria-label="Informações complementares"><li>CNH B</li><li>Disponibilidade para viagens</li><li>Inglês avançado</li></ul></div>
+      </section>
+      <section id="atuacao" aria-labelledby="atuacao-titulo">
+        <div class="section-head"><div><p class="eyebrow">02 — Atuação</p><h2 id="atuacao-titulo">Onde posso contribuir</h2></div><p>Experiência aplicada à prevenção e ao acompanhamento das operações.</p></div>
+        <div class="grid">
+          <article class="card"><span class="number">01 / PREVENÇÃO</span><h3>Gestão de riscos</h3><p>Identificação de perigos, avaliação de riscos ocupacionais e acompanhamento de medidas de prevenção.</p></article>
+          <article class="card"><span class="number">02 / DOCUMENTAÇÃO</span><h3>Rotina de campo</h3><p>Elaboração e acompanhamento de APR, Permissão de Trabalho e Diálogos Diários de Segurança.</p></article>
+          <article class="card"><span class="number">03 / OPERAÇÕES</span><h3>Atividades elétricas</h3><p>Acompanhamento de equipes e rotinas de segurança em instalações, corte, religação e atividades relacionadas ao SEP.</p></article>
+          <article class="card"><span class="number">04 / PROCESSOS</span><h3>Inspeções e auditorias</h3><p>Inspeções em campo, identificação de não conformidades e apoio ao acompanhamento de ações corretivas.</p></article>
+          <article class="card"><span class="number">05 / PESSOAS</span><h3>CIPA e treinamentos</h3><p>Atuação junto à CIPA, participação na organização da SIPAT e treinamentos para equipes de campo.</p></article>
+          <article class="card"><span class="number">06 / PROTEÇÃO</span><h3>Combate a incêndio</h3><p>Experiência com inspeção, manutenção e testes de hidrantes, sprinklers e sistemas de combate a incêndio.</p></article>
+        </div>
+      </section>
+      <section id="experiencia" aria-labelledby="experiencia-titulo">
+        <div class="section-head"><div><p class="eyebrow">03 — Trajetória</p><h2 id="experiencia-titulo">Experiência profissional</h2></div></div>
+        <div class="experience">
+          <article class="job"><div><div class="period"><time datetime="2026-06">JUN 2026</time> — ATUAL</div><span class="current">POSIÇÃO ATUAL</span></div><div><h3>Técnico em Segurança do Trabalho</h3><p class="company">Energec Engenharia e Construção</p><p>Projeto CPFL de instalação e substituição de medidores inteligentes. Acompanhamento de equipes, inspeções, APR, DDS, documentação e indicadores de segurança.</p></div></article>
+          <article class="job"><div class="period"><time datetime="2025-07">JUL 2025</time> — <time datetime="2026-05">MAI 2026</time></div><div><h3>Técnico em Segurança do Trabalho Líder</h3><p class="company">Protecto Tec — Engenharia contra Incêndio</p><p>Acompanhamento de obras e sistemas de combate a incêndio, controle de riscos ocupacionais, documentação de campo e apoio a auditorias.</p></div></article>
+          <article class="job"><div class="period"><time datetime="2019-11">NOV 2019</time> — <time datetime="2023-10">OUT 2023</time></div><div><h3>Inspetor Técnico</h3><p class="company">Brasfire — Combate a Incêndio</p><p>Inspeção, manutenção e montagem de sistemas de combate a incêndio, testes hidrostáticos e atendimento técnico a clientes.</p></div></article>
+          <article class="job"><div class="period"><time datetime="2016-10">OUT 2016</time> — <time datetime="2018-04">ABR 2018</time></div><div><h3>Eletrotécnico</h3><p class="company">Next Challenge</p><p>Manutenção industrial, instalações elétricas, sistemas de aterramento e elaboração de relatórios técnicos.</p></div></article>
+          <article class="job"><div class="period"><time datetime="2012-06">JUN 2012</time> — <time datetime="2014-09">SET 2014</time></div><div><h3>Gerente de SASSMAQ</h3><p class="company">Ventura Transportes</p><p>Gestão de documentação, indicadores, requisitos de segurança operacional e padronização de processos com a equipe.</p></div></article>
+        </div>
+      </section>
+      <section class="education" aria-labelledby="formacao-titulo"><div class="section-head"><div><p class="eyebrow">04 — Formação</p><h2 id="formacao-titulo">Aprendizado contínuo</h2></div></div><div class="grid"><article class="card"><h3>Segurança do Trabalho</h3><p>Curso técnico · Senac</p></article><article class="card"><h3>Mecânica de Usinagem</h3><p>Senai</p></article><article class="card"><h3>Engenharia de Software</h3><p>Graduação em andamento</p></article></div></section>
+      <section class="contact" id="contato" aria-labelledby="contato-titulo">
+        <div><p class="eyebrow">05 — Contato</p><h2 id="contato-titulo">Uma conversa pode ser<br>o próximo passo.</h2><p>Para oportunidades profissionais ou para conversar sobre uma demanda de segurança do trabalho.</p><address class="contact-address"><a href="mailto:rafagiindro@gmail.com">rafagiindro@gmail.com ↗</a><a href="tel:+5511981340029">(11) 98134-0029</a><span>São Bernardo do Campo — SP</span></address><a class="button secondary" href="https://wa.me/5511981340029" target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp ↗</a></div>
+        <div><form id="contact-form" hidden>
+          <div><label for="name">Seu nome</label><input id="name" name="name" autocomplete="name" required maxlength="100"></div>
+          <div><label for="email">Seu e-mail</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+          <div><label for="message">Como posso ajudar?</label><textarea id="message" name="message" required maxlength="2000" placeholder="Descreva a oportunidade ou o assunto da conversa."></textarea></div>
+          <p class="hint">Prepare uma mensagem e revise antes de abrir seu aplicativo de e-mail. Este site não envia mensagens diretamente.</p>
+          <button class="button" type="submit">Preparar e-mail <span aria-hidden="true">↗</span></button>
+        </form><noscript><p>Use o link de e-mail ou o WhatsApp ao lado para entrar em contato.</p></noscript>
+        <div class="draft" id="draft" hidden tabindex="-1" aria-labelledby="draft-title"><h3 id="draft-title">Mensagem preparada</h3><pre id="draft-text"></pre><a class="button" id="email-link">Abrir aplicativo de e-mail ↗</a><p class="hint">Se nenhum aplicativo abrir, copie o texto acima e envie para o endereço informado nesta seção.</p></div></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap footer-row"><p>© 2026 Rafael Gindro Geraldo · Segurança do Trabalho</p><a href="#inicio">Voltar ao início ↑</a></div></footer>
+  <script>
+    // O HTML permanece legível mesmo quando o JavaScript não está disponível.
+    const menuButton = document.querySelector('.menu');
+    const menuLinks = document.querySelector('#menu-links');
+    function closeMenu() {
+      menuLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menu';
+    }
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'Fechar menu' : 'Menu';
+    });
+    menuLinks.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuLinks.classList.contains('open')) {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+    window.matchMedia('(min-width: 681px)').addEventListener('change', closeMenu);
+    document.documentElement.classList.add('js');
+
+    const form = document.querySelector('#contact-form');
+    const draft = document.querySelector('#draft');
+    form.addEventListener('input', () => { draft.hidden = true; });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      for (const field of form.querySelectorAll('input, textarea')) {
+        field.value = field.value.trim();
+      }
+      if (!form.reportValidity()) return;
+      const name = document.querySelector('#name').value;
+      const email = document.querySelector('#email').value;
+      const message = document.querySelector('#message').value;
+      const body = `Nome: ${name}\nE-mail: ${email}\n\n${message}`;
+      document.querySelector('#draft-text').textContent = body;
+      document.querySelector('#email-link').href = `mailto:rafagiindro@gmail.com?subject=${encodeURIComponent('Contato profissional — ' + name)}&body=${encodeURIComponent(body)}`;
+      draft.hidden = false;
+      draft.focus();
+    });
+    form.hidden = false;
+  </script>
+</body>
+</html>
